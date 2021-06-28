@@ -1,7 +1,7 @@
 import { environment } from 'src/environments/environment';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Category } from './category.model';
+import { Category, DeleteCategory } from './category.model';
 import { HttpClient } from '@angular/common/http';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
@@ -11,6 +11,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class CategoryService {
 
   baseUrl: String = environment.baseUrl;
+
 
   constructor(private http: HttpClient, private _snack: MatSnackBar) { }
 
@@ -30,5 +31,10 @@ export class CategoryService {
       verticalPosition: 'top',
       duration: 3000
     })
+  }
+
+  delete(categoryId: DeleteCategory): Observable<Category> {
+    const url = `${this.baseUrl}categories/${categoryId}`
+    return this.http.post<Category>(url, categoryId.id);
   }
 }

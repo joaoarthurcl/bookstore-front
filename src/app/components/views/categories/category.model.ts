@@ -3,3 +3,7 @@ export interface Category {
     name: string;
     description: string;
 }
+
+export interface DeleteCategory {
+    id: number;
+}

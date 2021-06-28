@@ -32,6 +32,11 @@ export class CategoryCreateComponent implements OnInit {
       }
     })
   }
+
+  cancelForm(): void {
+    this.router.navigate(['categories']);
+  }
+
   categoryName(value: any) {
     this.category.name = value;
   }

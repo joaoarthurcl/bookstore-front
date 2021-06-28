@@ -1,6 +1,7 @@
 import { Category } from './../category.model';
 import { CategoryService } from './../category-service.service';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-category-read',
@@ -13,7 +14,8 @@ export class CategoryReadComponent implements OnInit {
   displayedColumns: string[] = ['id', 'name', 'description', 'books', 'actions'];
 
 
-  constructor(private service: CategoryService) { }
+  constructor(private service: CategoryService,
+    private router: Router) { }
 
   ngOnInit(): void {
     this.findAll();
@@ -25,6 +27,10 @@ export class CategoryReadComponent implements OnInit {
       this.categories = response;
       console.log(this.categories)
     })
+  }
+
+  goToCreateCategory() {
+    this.router.navigate(['categories/create']);
   }
 
 }

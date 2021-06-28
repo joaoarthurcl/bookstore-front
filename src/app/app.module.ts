@@ -19,7 +19,9 @@ import { MatTableModule } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
 import { CategoryReadComponent } from './components/views/categories/category-read/category-read.component';
 import { CategoryCreateComponent } from './components/views/categories/category-create/category-create.component';
-
+import { FormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,7 +43,11 @@ import { CategoryCreateComponent } from './components/views/categories/category-
     MatCardModule,
     MatTableModule,
     MatButtonModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    MatInputModule,
+    MatFormFieldModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

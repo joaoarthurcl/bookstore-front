@@ -15,6 +15,23 @@
 }
 
 .table {
+    margin-top: .8rem;
     width: 100%;
+}
 
+.edit {
+    color: rgb(23, 187, 23);
+}
+
+.delete {
+    color: rgb(202, 28, 28);
+    margin-left: 1rem;
+}
+
+.mat-header {
+    width: 5rem;
+}
+
+.books {
+    margin-left: .6rem;
 }

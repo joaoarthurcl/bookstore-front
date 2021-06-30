@@ -22,20 +22,22 @@ export class CategoryDeleteComponent implements OnInit {
   }
 
   findById(): void {
-    this.service.findById(this.category.id!).subscribe((response => {
+    this.service.findById(this.category.id!).subscribe((response) => {
       this.category.name = response.name;
       this.category.description = response.description
-    }))
+    })
   }
 
   deleteCategory(): void {
-    this.service.delete(this.category).subscribe((response => {
-      this.category = response;
-      console.log(response)
-    }))
+    this.service.delete(this.category.id!).subscribe((response) => {
+      this.goToCategories();
+      this.service.message('Categoria excluída com sucesso!');
+    }, err => {
+      this.service.message('Categoria não pode ser excluída, possui livros associados!');
+    })
   }
 
-  cancelForm(): void {
+  goToCategories(): void {
     this.router.navigate(['categories'])
   }
 

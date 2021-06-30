@@ -10,8 +10,8 @@
             disabled></textarea>
     </mat-form-field>
     <div class="buttons">
-        <button class="mat-elevation-z8" mat-stroked-button color="primary">DELETE
+        <button class="mat-elevation-z8" mat-stroked-button color="primary" (click)="deleteCategory()">DELETE
             CATEGORY</button>
-        <button class="mat-elevation-z8" mat-stroked-button color="warn" (click)="this.cancelForm()">CANCEL</button>
+        <button class="mat-elevation-z8" mat-stroked-button color="warn" (click)="this.goToCategories()">CANCEL</button>
     </div>
 </form>

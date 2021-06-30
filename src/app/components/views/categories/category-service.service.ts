@@ -30,9 +30,9 @@ export class CategoryService {
     return this.http.post<Category>(url, category);
   }
 
-  delete(categoryId: Category): Observable<Category> {
-    const url = `${this.baseUrl}categories/${categoryId.id}`
-    return this.http.post<Category>(url, categoryId.id);
+  delete(id: String): Observable<void> {
+    const url = `${this.baseUrl}categories/${id}`
+    return this.http.delete<void>(url);
   }
 
   message(value: String): void {

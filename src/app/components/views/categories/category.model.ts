@@ -1,9 +1,5 @@
 export interface Category {
-    id?: number;
+    id?: string;
     name: string;
     description: string;
-}
-
-export interface DeleteCategory {
-    id: number;
 }

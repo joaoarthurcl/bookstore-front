@@ -1,4 +1,4 @@
-import { Category, DeleteCategory } from './../category.model';
+import { Category } from './../category.model';
 import { CategoryService } from './../category-service.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 export class CategoryReadComponent implements OnInit {
 
   categories: Category[] = [];
+  category = {} as Category;
   displayedColumns: string[] = ['id', 'name', 'description', 'books', 'actions'];
 
 
@@ -22,7 +23,6 @@ export class CategoryReadComponent implements OnInit {
   }
 
   findAll() {
-
     this.service.findAll().subscribe(response => {
       this.categories = response;
     })
@@ -30,12 +30,6 @@ export class CategoryReadComponent implements OnInit {
 
   goToCreateCategory() {
     this.router.navigate(['categories/create']);
-  }
-
-  delete(categoryId: DeleteCategory) {
-    this.service.delete(categoryId).subscribe(response => {
-
-    })
   }
 
 }

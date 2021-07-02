@@ -1,0 +1,16 @@
+<form>
+    <h1>UPDATE CATEGORY</h1>
+    <mat-form-field class="form">
+        <mat-label>Name</mat-label>
+        <input [(ngModel)]="this.category.name" required matInput type="text" name="name">
+    </mat-form-field>
+    <mat-form-field class="form">
+        <mat-label>Description</mat-label>
+        <textarea [(ngModel)]="this.category.description" required matInput type="text" name="description"></textarea>
+    </mat-form-field>
+    <div class="buttons">
+        <button class="mat-elevation-z8" mat-stroked-button color="primary" (click)="this.updateCategory()">UPDATE
+            CATEGORY</button>
+        <button class="mat-elevation-z8" mat-stroked-button color="warn" (click)="this.goToCategories()">CANCEL</button>
+    </div>
+</form>

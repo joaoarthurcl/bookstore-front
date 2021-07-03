@@ -1,0 +1,32 @@
+<form>
+    <h1>EDIT BOOK</h1>
+
+    <mat-form-field class="form">
+        <mat-label>Title</mat-label>
+        <input matInput [formControl]="this.title" required type="text" name="title" placeholder="title"
+            [(ngModel)]="this.book.title" maxlength="100">
+        <mat-error *ngIf="this.title.invalid">{{ this.getMessageTitle() }}</mat-error>
+    </mat-form-field>
+    <mat-form-field class="form">
+        <mat-label>Author Name</mat-label>
+        <input matInput [(ngModel)]="this.book.author_name" [formControl]="this.author_name" required type="text"
+            name="author_name" placeholder="author name" maxlength="100">
+        <mat-error *ngIf="this.author_name.invalid">{{ this.getMessageAuthorName() }}</mat-error>
+    </mat-form-field>
+    <mat-form-field class="form">
+        <mat-label>Text</mat-label>
+        <textarea matInput [formControl]="this.description" required type="text" name="description"
+            placeholder="EX: Lorem Ipsum" [(ngModel)]="this.book.description" maxlength="2000000"></textarea>
+        <mat-error *ngIf="this.description.invalid">{{ this.getMessageText() }}</mat-error>
+    </mat-form-field>
+
+    <div class="buttons">
+        <button [disabled]="this.disabledButton()" class="mat-elevation-z8" mat-stroked-button color="primary"
+            (click)="this.update()">EDIT
+            BOOK</button>
+        <button (click)="this.goToCategories()" class="mat-elevation-z8" mat-stroked-button color="warn">CANCEL</button>
+        <button class="mat-elevation-z8" mat-stroked-button color="accent" type="reset">CLEAR</button>
+    </div>
+
+
+</form>

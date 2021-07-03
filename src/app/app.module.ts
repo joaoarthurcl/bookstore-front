@@ -27,6 +27,7 @@ import { CategoryDeleteComponent } from './components/views/categories/category-
 import { CategoryUpdateComponent } from './components/views/categories/category-update/category-update.component';
 import { BookReadAllComponent } from './components/views/books/book-read-all/book-read-all.component';
 import { BookCreateComponent } from './components/views/books/book-create/book-create.component';
+import { BookUpdateComponent } from './components/views/books/book-update/book-update.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,6 +41,7 @@ import { BookCreateComponent } from './components/views/books/book-create/book-c
     CategoryUpdateComponent,
     BookReadAllComponent,
     BookCreateComponent,
+    BookUpdateComponent,
   ],
   imports: [
     BrowserModule,

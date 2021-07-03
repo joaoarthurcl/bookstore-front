@@ -28,6 +28,11 @@ export class BookService {
     return this.http.post<Book>(url, book);
   }
 
+  update(book: Book): Observable<Book> {
+    const url = `${this.baseUrl}books/${book.id}`
+    return this.http.put<Book>(url, book);
+  }
+
   message(value: String): void {
     this._snack.open(`${value}`, 'OK', {
       horizontalPosition: 'end',

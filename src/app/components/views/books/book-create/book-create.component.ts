@@ -15,7 +15,7 @@ export class BookCreateComponent implements OnInit {
   book = {} as Book;
   title = new FormControl('', [Validators.minLength(3)]);
   author_name = new FormControl('', [Validators.minLength(3)]);
-  text = new FormControl('', [Validators.minLength(10)]);
+  description = new FormControl('', [Validators.minLength(10)]);
   constructor(private service: BookService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
@@ -35,7 +35,7 @@ export class BookCreateComponent implements OnInit {
     return false;
   }
   getMessageText() {
-    if (this.text.invalid) {
+    if (this.description.invalid) {
       return 'O campo texto deve conter entre 10 e 2.000.000 caracteres!'
     }
     return false;
@@ -56,12 +56,18 @@ export class BookCreateComponent implements OnInit {
 
   create(): void {
     this.service.create(this.id_cat, this.book).subscribe((response) => {
+      this.router.navigate([`categories/${this.id_cat}/books`])
       this.book = response;
+      this.service.message('Livro criado com sucesso!');
+    }, err => {
+      this.router.navigate([`categories/${this.id_cat}/books`])
+      console.log(err)
+      this.service.message('Erro ao criar novo livro, tente mais tarde!')
     })
   }
 
   goToCategories() {
-    this.router.navigate(['categories'])
+    this.router.navigate([`categories/${this.id_cat}/books`])
   }
 
 }

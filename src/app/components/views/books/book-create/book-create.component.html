@@ -15,9 +15,9 @@
     </mat-form-field>
     <mat-form-field class="form">
         <mat-label>Text</mat-label>
-        <textarea matInput [formControl]="this.text" required type="text" name="text" placeholder="EX: Lorem Ipsum"
-            [(ngModel)]="this.book.text" maxlength="2000000"></textarea>
-        <mat-error *ngIf="this.text.invalid">{{ this.getMessageText() }}</mat-error>
+        <textarea matInput [formControl]="this.description" required type="text" name="description"
+            placeholder="EX: Lorem Ipsum" [(ngModel)]="this.book.description" maxlength="2000000"></textarea>
+        <mat-error *ngIf="this.description.invalid">{{ this.getMessageText() }}</mat-error>
     </mat-form-field>
 
     <div class="buttons">

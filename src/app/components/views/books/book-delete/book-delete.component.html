@@ -1,0 +1,24 @@
+<form>
+    <h1>DELETE BOOK</h1>
+
+    <mat-form-field class="form">
+        <mat-label>Title</mat-label>
+        <input matInput disabled type="text" name="title" placeholder="title" [(ngModel)]="this.book.title"
+            maxlength="100">
+    </mat-form-field>
+    <mat-form-field class="form">
+        <mat-label>Author Name</mat-label>
+        <input matInput [(ngModel)]="this.book.author_name" disabled type="text" name="author_name"
+            placeholder="author name" maxlength="100">
+    </mat-form-field>
+    <mat-form-field class="form">
+        <mat-label>Text</mat-label>
+        <textarea matInput disabled type="text" name="description" placeholder="EX: Lorem Ipsum"
+            [(ngModel)]="this.book.description" maxlength="2000000"></textarea>
+    </mat-form-field>
+    <div class="buttons">
+        <button class="mat-elevation-z8" mat-stroked-button color="primary" (click)="this.delete()">DELETE
+            BOOK</button>
+        <button (click)="this.goToCategories()" class="mat-elevation-z8" mat-stroked-button color="warn">CANCEL</button>
+    </div>
+</form>

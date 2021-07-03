@@ -8,6 +8,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { CategoryCreateComponent } from './components/views/categories/category-create/category-create.component';
 import { CategoryUpdateComponent } from './components/views/categories/category-update/category-update.component';
 import { BookUpdateComponent } from './components/views/books/book-update/book-update.component';
+import { BookDeleteComponent } from './components/views/books/book-delete/book-delete.component';
 
 const routes: Routes = [
   {
@@ -41,6 +42,10 @@ const routes: Routes = [
   {
     path: 'categories/:id_cat/books/:id/update',
     component: BookUpdateComponent
+  },
+  {
+    path: 'categories/:id_cat/books/:id/delete',
+    component: BookDeleteComponent
   },
 ];
 

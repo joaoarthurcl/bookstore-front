@@ -1,4 +1,4 @@
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { BookService } from './../book.service';
 import { Book } from './../book-model';
 import { Component, OnInit } from '@angular/core';
@@ -15,7 +15,7 @@ export class BookReadAllComponent implements OnInit {
   displayedColumns: string[] = ['id', 'title', 'books', 'actions'];
   id_cat!: String;
 
-  constructor(private service: BookService, private route: ActivatedRoute) { }
+  constructor(private service: BookService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
     this.id_cat = this?.route?.snapshot?.paramMap?.get('id_cat')!;
@@ -25,8 +25,12 @@ export class BookReadAllComponent implements OnInit {
   findAll(): void {
     this.service.findAllByCategory(this.id_cat).subscribe((response) => {
       this.books = response
-      console.log(this.books)
     })
   }
+
+  goToCreateBook(): void {
+    this.router.navigate([`categories/${this.id_cat}/books/create`])
+  }
 }
+
 

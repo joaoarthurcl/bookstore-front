@@ -17,5 +17,15 @@ export class BookService {
     return this.http.get<Book[]>(url);
   }
 
+  findById(id: String): Observable<Book> {
+    const url = `${this.baseUrl}books/${id}`
+    return this.http.get<Book>(url);
+  }
+
+  create(id_cat: String, book: Book) {
+    const url = `${this.baseUrl}books?category=${id_cat}/books/create`
+    return this.http.post<Book>(url, book);
+  }
+
 
 }

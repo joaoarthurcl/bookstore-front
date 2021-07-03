@@ -1,0 +1,28 @@
+<form>
+    <h1>CREATE BOOK</h1>
+
+    <mat-form-field class="form">
+        <mat-label>Title</mat-label>
+        <input required matInput type="text" name="title" placeholder="title" [(ngModel)]="this.book.title"
+            maxlength="100">
+    </mat-form-field>
+    <mat-form-field class="form">
+        <mat-label>Author Name</mat-label>
+        <input required matInput type="text" name="author_name" placeholder="author name"
+            [(ngModel)]="this.book.author_name" maxlength="100">
+    </mat-form-field>
+    <mat-form-field class="form">
+        <mat-label>Text</mat-label>
+        <textarea required matInput type="text" name="text" placeholder="EX: Lorem Ipsum" [(ngModel)]="this.book.text"
+            maxlength="2000000"></textarea>
+    </mat-form-field>
+
+    <div class="buttons">
+        <button class="mat-elevation-z8" mat-stroked-button color="primary" (click)="this.create()">CREATE
+            BOOK</button>
+        <button class="mat-elevation-z8" mat-stroked-button color="warn">CANCEL</button>
+        <button class="mat-elevation-z8" mat-stroked-button color="accent" type="reset">CLEAR</button>
+    </div>
+
+
+</form>

@@ -3,24 +3,28 @@
 
     <mat-form-field class="form">
         <mat-label>Title</mat-label>
-        <input required matInput type="text" name="title" placeholder="title" [(ngModel)]="this.book.title"
-            maxlength="100">
+        <input matInput [formControl]="this.title" required type="text" name="title" placeholder="title"
+            [(ngModel)]="this.book.title" maxlength="100">
+        <mat-error *ngIf="this.title.invalid">{{ this.getMessageTitle() }}</mat-error>
     </mat-form-field>
     <mat-form-field class="form">
         <mat-label>Author Name</mat-label>
-        <input required matInput type="text" name="author_name" placeholder="author name"
-            [(ngModel)]="this.book.author_name" maxlength="100">
+        <input matInput [formControl]="this.author_name" required type="text" name="author_name"
+            placeholder="author name" [(ngModel)]="this.book.author_name" maxlength="100">
+        <mat-error *ngIf="this.author_name.invalid">{{ this.getMessageAuthorName() }}</mat-error>
     </mat-form-field>
     <mat-form-field class="form">
         <mat-label>Text</mat-label>
-        <textarea required matInput type="text" name="text" placeholder="EX: Lorem Ipsum" [(ngModel)]="this.book.text"
-            maxlength="2000000"></textarea>
+        <textarea matInput [formControl]="this.text" required type="text" name="text" placeholder="EX: Lorem Ipsum"
+            [(ngModel)]="this.book.text" maxlength="2000000"></textarea>
+        <mat-error *ngIf="this.text.invalid">{{ this.getMessageText() }}</mat-error>
     </mat-form-field>
 
     <div class="buttons">
-        <button class="mat-elevation-z8" mat-stroked-button color="primary" (click)="this.create()">CREATE
+        <button [disabled]="this.disabledButton()" class="mat-elevation-z8" mat-stroked-button color="primary"
+            (click)="this.create()">CREATE
             BOOK</button>
-        <button class="mat-elevation-z8" mat-stroked-button color="warn">CANCEL</button>
+        <button (click)="this.goToCategories()" class="mat-elevation-z8" mat-stroked-button color="warn">CANCEL</button>
         <button class="mat-elevation-z8" mat-stroked-button color="accent" type="reset">CLEAR</button>
     </div>
 

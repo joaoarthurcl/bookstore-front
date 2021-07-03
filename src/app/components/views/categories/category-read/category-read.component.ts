@@ -1,4 +1,4 @@
-import { Category } from './../category.model';
+import { Category } from '../category.model';
 import { CategoryService } from './../category-service.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';

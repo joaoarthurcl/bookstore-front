@@ -23,15 +23,17 @@ export class CategoryUpdateComponent implements OnInit {
 
   findById(): void {
     this.service.findById(this.category.id!).subscribe((response) => {
-      this.category = response;
+      this.category.name = response.name;
+      this.category.description = response.description;
     })
   }
 
   updateCategory(): void {
     this.service.update(this.category).subscribe((response) => {
-      this.category = response;
       this.goToCategories();
       this.service.message('Categoria atualizada com sucesso!');
+    }, err => {
+      this.service.message('Validar se todos os campos estão preenchidos corretamente.')
     })
   }
 
